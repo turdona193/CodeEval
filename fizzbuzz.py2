@@ -1,6 +1,19 @@
-fileinput = open('parameter.txt','r')
-for line in fileinput.readlines():
-    a,b,n = line.split()
-    print("a = {} b = {} c = {}".format(a,b,n))
-    listOfNumbers = [x for x in range(1,n)]
-    
+import sys
+userInput = file(sys.argv[1],'r') #Will receive file argument through command line
+#parse through the lines
+for line in userInput.readlines():
+    a,b,c = line.split()
+    fizz,buzz,n = int(a),int(b),int(c)
+    #creating lists fot the Numbers and the locations of Fizz and Buzz
+    listOfNumbers = [x for x in range(1,n+1)]
+    listOfFizz = [x*fizz for x in range(1,n/fizz+1)]
+    listOfBuzz = [x*buzz for x in range(1,n/buzz+1)]
+    #Inserting Fizz and Buzz
+    for fizz in listOfFizz:
+        listOfNumbers[fizz-1] = 'F'
+    for buzz in listOfBuzz:
+        if listOfNumbers[buzz-1] == 'F':
+            listOfNumbers[buzz-1] = 'FB'
+        else:
+            listOfNumbers[buzz-1] = 'B'    
+    print(' '.join(map(str,listOfNumbers)))
