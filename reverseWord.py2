@@ -1,6 +1,6 @@
 import sys
-userInput = file(sys.argv[1],'r')
-for line in userInput.readlines():
-    order = line.rstrip().split(' ')
+userInput = file(sys.argv[1],'r') #Will receive file argument through command line
+for line in userInput.readlines(): #loops through lines
+    order = line.rstrip().split(' ') #separate lines into a list of words while eliminating the end line character.
     order.reverse()
     print(' '.join(order))
