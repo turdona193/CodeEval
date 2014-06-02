@@ -1,0 +1,10 @@
+#Solving Multiples of a Number
+import sys
+userInput = file(sys.argv[1],'r') #Will receive file argument through command line
+for line in userInput.readlines():
+    x, n = line.split(',')
+    solution = int(n)
+    limit = int(x)
+    while solution < limit:
+        solution += int(n)
+    print(solution)
