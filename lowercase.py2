@@ -1,0 +1,5 @@
+import sys
+userInput = file(sys.argv[1],'r') #Will receive file argument through command line
+for line in userInput.readlines():
+    print(line.rstrip().lower())
+    
