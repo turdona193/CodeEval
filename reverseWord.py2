@@ -1,0 +1,6 @@
+import sys
+userInput = file(sys.argv[1],'r')
+for line in userInput.readlines():
+    order = line.rstrip().split(' ')
+    order.reverse()
+    print(' '.join(order))
