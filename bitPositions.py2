@@ -1,0 +1,21 @@
+import sys
+#Setting up Tools
+#Designed to return the bit representation of a number as a list
+#returned list has the smallest number to the left most location 
+def toBitArray(number):
+    solution = []
+    while number > 0:
+        solution.append(number%2) 
+        number /= 2
+    return solution
+
+#Solution
+userInput = file(sys.argv[1],'r') #Will receive file argument through command line
+for line in userInput.readlines():
+    a,b,c = line.rsplit(',')
+    value,p1,p2 = int(a),int(b),int(c)
+    bitRepensentation = toBitArray(value)
+    if bitRepensentation[p1-1] == bitRepensentation[p2-1]:
+        print('true')
+    else:
+        print('false')
